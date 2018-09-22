@@ -12,7 +12,7 @@ namespace CtrlHack.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>() ?? new MockDataStore();
+        public IVerifyStorage DataStore { get; } = new HttpVerifyStorage();
 
         bool isBusy = false;
         public bool IsBusy

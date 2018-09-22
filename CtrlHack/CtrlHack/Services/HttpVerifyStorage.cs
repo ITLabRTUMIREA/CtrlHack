@@ -19,15 +19,17 @@ namespace CtrlHack.Services
             var fields = doc
                 .DocumentNode
                 .SelectNodes("//td/b")
-                .Skip(2)
+                .Skip(1)
                 .Select(n => n.InnerText)
                 .Where(r => !Regex.IsMatch(r, @"^\d+\D$"))
+                .ToList();
+            var next = fields
                 .Select((val, num) => (val, num))
                 .GroupBy(vn => vn.num / 9)
                 .Select(g => g.Select(vn => vn.val))
                 .Select(Parse)
                 .ToList();
-            return fields;
+            return next;
         }
 
         private static Verify Parse(IEnumerable<string> fields)
@@ -43,7 +45,7 @@ namespace CtrlHack.Services
         private static readonly Action<Verify, string>[] inits = new Action<Verify, string>[]
         {
             (ver, v) => ver.OrgName = v,
-            (ver, v) => ver.ORGN = v,
+            (ver, v) => ver.OGRN = v,
             (ver, v) => ver.INN = v,
             (ver, v) => ver.Address = v,
             (ver, v) => ver.Purpose = v,
