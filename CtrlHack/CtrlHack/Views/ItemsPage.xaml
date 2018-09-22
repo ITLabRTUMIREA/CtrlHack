@@ -22,29 +22,32 @@
                             <Frame OutlineColor="Accent"
                                Padding="10">
                                 <StackLayout Padding="10">
-                            <Label Text="{Binding CompactOrgName}" 
-                                LineBreakMode="WordWrap"
-                                Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="16" />
-                            <Grid Padding="5">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
+                                    <Label 
+                                        Text="{Binding CompactOrgName}" 
+                                        LineBreakMode="WordWrap"
+                                        Style="{DynamicResource ListItemTextStyle}" 
+                                        FontSize="16" />
+                                    <Grid Padding="5">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
 
-                                        <Label Text="{Binding OGRN}" 
-                                LineBreakMode="NoWrap"
-                                Style="{DynamicResource ListItemDetailTextStyle}"
-                                FontSize="13" 
-                                    Grid.Column="1"/>
+                                        <Label 
+                                            Text="{Binding OGRN}" 
+                                            LineBreakMode="NoWrap"
+                                            Style="{DynamicResource ListItemDetailTextStyle}"
+                                            FontSize="13" 
+                                            Grid.Column="1"/>
 
-                                        <Label Text="{Binding INN}" 
-                                LineBreakMode="NoWrap"
-                                Style="{DynamicResource ListItemDetailTextStyle}"
-                                FontSize="13" 
-                                    Grid.Column="2"/>
-                                </Grid>
-                            </StackLayout>
-                        </Frame>
+                                        <Label 
+                                            Text="{Binding INN}" 
+                                            LineBreakMode="NoWrap"
+                                            Style="{DynamicResource ListItemDetailTextStyle}"
+                                            FontSize="13" 
+                                            Grid.Column="2"/>
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
                         </ContentView>
                     </ViewCell>
                 </DataTemplate>
@@ -52,5 +55,5 @@
         </ListView>
     </StackLayout>
 
-       
+
 </ContentPage>
