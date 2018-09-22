@@ -13,23 +13,44 @@
                 IsPullToRefreshEnabled="true"
                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                 CachingStrategy="RecycleElement"
-                ItemSelected="OnItemSelected">
+                ItemSelected="OnItemSelected" 
+                >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Padding="10">
+                        <ContentView Padding="10">
+                            <Frame OutlineColor="Accent"
+                               Padding="10">
+                                <StackLayout Padding="10">
                             <Label Text="{Binding CompactOrgName}" 
-                                LineBreakMode="WordWrap" 
-                                Style="{DynamicResource ListItemTextStyle}"
+                                LineBreakMode="WordWrap"
+                                Style="{DynamicResource ListItemTextStyle}" 
                                 FontSize="16" />
-                            <Label Text="{Binding OGRN}" 
+                            <Grid Padding="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                        <Label Text="{Binding OGRN}" 
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListItemDetailTextStyle}"
-                                FontSize="13" />
-                        </StackLayout>
+                                FontSize="13" 
+                                    Grid.Column="1"/>
+
+                                        <Label Text="{Binding INN}" 
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" 
+                                    Grid.Column="2"/>
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+                        </ContentView>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
     </StackLayout>
+
+       
 </ContentPage>
