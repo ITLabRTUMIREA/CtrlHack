@@ -6,6 +6,10 @@ namespace CtrlHack.Models
 {
     public class Verify
     {
+        public const int MaxCompactLength = 80;
+        public string CompactOrgName => OrgName.Length > MaxCompactLength ?
+            OrgName.Substring(0, MaxCompactLength - 3) + "..."
+            : OrgName;
         public string OrgName { get; set; }
         public string OGRN { get; set; }
         public string INN { get; set; }
