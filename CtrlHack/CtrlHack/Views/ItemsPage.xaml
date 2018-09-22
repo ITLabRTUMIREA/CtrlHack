@@ -18,9 +18,9 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="10">
-                            <Label Text="{Binding OrgName}" 
-                                LineBreakMode="NoWrap" 
-                                Style="{DynamicResource ListItemTextStyle}" 
+                            <Label Text="{Binding CompactOrgName}" 
+                                LineBreakMode="WordWrap" 
+                                Style="{DynamicResource ListItemTextStyle}"
                                 FontSize="16" />
                             <Label Text="{Binding OGRN}" 
                                 LineBreakMode="NoWrap"
