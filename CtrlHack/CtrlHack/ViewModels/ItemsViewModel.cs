@@ -92,6 +92,7 @@ namespace CtrlHack.ViewModels
                 await Task.Delay(TimeSpan.FromSeconds(1));
                 if (my != i)
                     return;
+                IsBusy = true;
                 var items = await DataStore.GetVerifyesAsync(Year, OrgName, Ogrn, Inn, currentRegion.Number);
                 Items.Clear();
                 foreach (var item in items)
@@ -110,6 +111,7 @@ namespace CtrlHack.ViewModels
             }
             finally
             {
+                IsBusy = false;
             }
         }
     }
