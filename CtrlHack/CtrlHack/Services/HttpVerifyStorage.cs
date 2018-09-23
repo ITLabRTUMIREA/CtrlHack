@@ -33,11 +33,23 @@ namespace CtrlHack.Services
                 .ToList();
             var next = fields
                 .Select((val, num) => (val, num))
-                .GroupBy(vn => vn.num / 9)
+                .GroupBy(vn => vn.num / ChunkSize(year))
                 .Select(g => g.Select(vn => vn.val))
                 .Select(Parse)
                 .ToList();
             return next;
+        }
+
+        private int ChunkSize(int year)
+        {
+            switch (year)
+            {
+                case 2013:
+                case 2014:
+                    return 8;
+                default:
+                    return 9;
+            }
         }
 
         private static Verify Parse(IEnumerable<string> fields)
