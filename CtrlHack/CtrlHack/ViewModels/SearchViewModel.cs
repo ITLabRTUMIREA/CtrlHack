@@ -7,9 +7,9 @@ using Xamarin.Forms;
 
 namespace CtrlHack.ViewModels
 {
-	public class Search : BaseViewModel
+	public class SearchViewModel : BaseViewModel
 	{
-		public Search ()
+		public SearchViewModel ()
 		{
             Title = "Поиск проверок123";
             

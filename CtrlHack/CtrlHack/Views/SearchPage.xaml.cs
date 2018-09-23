@@ -15,15 +15,6 @@ namespace CtrlHack.Views
         MainPage RootPage { get => Application.Current.MainPage as MainPage; }
         public SearchPage ()
 		{
-			InitializeComponent ();
-            SearchButton.Clicked += async (sender, e) =>
-            {
-                if (e == null)
-                    return;
-
-                var id = 1;
-                await RootPage.NavigateFromMenu(id);
-            };
         }
     }
 }

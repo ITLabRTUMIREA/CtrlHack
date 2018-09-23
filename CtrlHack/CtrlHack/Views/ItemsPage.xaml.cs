@@ -17,7 +17,6 @@ namespace CtrlHack.Views
     public partial class ItemsPage : ContentPage
     {
         ItemsViewModel viewModel;
-
         public ItemsPage()
         {
             InitializeComponent();
@@ -42,6 +41,11 @@ namespace CtrlHack.Views
 
             if (viewModel.Items.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
+        }
+
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            viewModel.SearchOpened = !viewModel.SearchOpened;
         }
     }
 }
