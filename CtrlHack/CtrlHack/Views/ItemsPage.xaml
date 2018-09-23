@@ -9,6 +9,7 @@
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
                     <On Platform="UWP" Value="add.png"/>
+                    <On Platform="Android" Value="search.png"/>
                 </OnPlatform>
             </ToolbarItem.Icon>
         </ToolbarItem>
@@ -18,14 +19,36 @@
             IsVisible="{Binding SearchOpened}"
             VerticalOptions="Center"
             >
-            <Label Text="Год"></Label>
-            <DatePicker x:Name="DateField"></DatePicker>
-            <Entry Placeholder="Наименование ИП/ЮЛ" ReturnType="Next" x:Name="OrgNameField"></Entry>
-            <Entry Placeholder="ОГРН" ReturnType="Next" x:Name="OGRNField"></Entry>
-            <Entry Placeholder="ИНН" ReturnType="Next" x:Name="INNField"></Entry>
-            <Label Text="Субъект РФ"></Label>
-            <Picker ItemsSource="" x:Name="SubjectField" Title="Субъект РФ"></Picker>
-            <Button Text="Поиск" HorizontalOptions="Center" x:Name="SearchButton"></Button>
+            <Picker 
+                Title="Год"
+                SelectedItem="{Binding Year}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:Int32}">
+                        <x:Int32>2013</x:Int32>
+                        <x:Int32>2014</x:Int32>
+                        <x:Int32>2015</x:Int32>
+                        <x:Int32>2016</x:Int32>
+                        <x:Int32>2017</x:Int32>
+                        <x:Int32>2018</x:Int32>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Entry 
+                Placeholder="Наименование ИП/ЮЛ"
+                Text="{Binding OrgName}"
+                ReturnType="Next"/>
+            <Entry 
+                Placeholder="ОГРН" 
+                Text="{Binding Ogrn}"
+                ReturnType="Next" />
+            <Entry 
+                Placeholder="ИНН" 
+                Text="{Binding Inn}"
+                ReturnType="Next"/>
+            <Picker Title="Субъект РФ"
+                    ItemsSource="{Binding Regions}"
+                    ItemDisplayBinding="{Binding Title}"
+                    SelectedItem="{Binding CurrentRegion}" />
         </StackLayout>
         <ListView x:Name="ItemsListView"
                 ItemsSource="{Binding Items}"
