@@ -12,7 +12,8 @@
             <Entry Placeholder="ИНН" ReturnType="Next" x:Name="INNField"></Entry>
             <Label Text="Субъект РФ"></Label>
             <Picker  ItemsSource="" x:Name="RegionField"></Picker>
-            <Button Text="Поиск" HorizontalOptions="Center" x:Name="SearchButton"></Button>
+            <Button Text="Поиск" HorizontalOptions="Center" x:Name="SearchButton" Command="mui:LinkCommands.NavigateLink"
+    CommandParameter="/ItemsPage.xaml"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
