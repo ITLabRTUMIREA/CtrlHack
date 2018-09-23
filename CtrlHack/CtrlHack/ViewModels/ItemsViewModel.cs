@@ -23,7 +23,7 @@ namespace CtrlHack.ViewModels
 
         public ItemsViewModel()
         {
-            Title = "Browse";
+            Title = "Список проверок";
             Items = new ObservableCollection<Verify>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
         }

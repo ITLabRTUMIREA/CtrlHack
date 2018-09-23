@@ -11,11 +11,11 @@ namespace CtrlHack.ViewModels
 	{
 		public Search ()
 		{
-            Title = "Поиск проверок";
+            Title = "Поиск проверок123";
+            
 
             //OpenWebCommand = new Command(() => Device.OpenUri(new Uri("https://xamarin.com/platform")));
         }
-
         //public ICommand OpenWebCommand { get; }
 	}
 }
