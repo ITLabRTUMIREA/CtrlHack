@@ -13,13 +13,20 @@ namespace CtrlHack.ViewModels
     public class ItemsViewModel : BaseViewModel
     {
         public ObservableCollection<Verify> Items { get; set; }
+
+        bool searchOpened = false;
+        public bool SearchOpened 
+        {
+            get { return searchOpened; }
+            set { SetProperty(ref searchOpened, value); }
+        }
+
         public Command LoadItemsCommand { get; set; }
         public int Year = 2018;
         public string OrgName;
         public string Ogrn;
         public string Inn;
         public int? Subject = 77;
-
 
         public ItemsViewModel()
         {

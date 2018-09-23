@@ -26,6 +26,7 @@ namespace CtrlHack.Models
                 {("ДОПОЛНИТЕЛЬНОГО ОБРАЗОВАНИЯ", "ДО")},
                 {("ДОПОЛНИТЕЛЬНОГО ПРОФЕССИОНАЛЬНОГО ОБРАЗОВАНИЯ", "ДПО")},
                 {("ВЫСШЕГО ОБРАЗОВАНИЯ", "ВО")}
+
             };
 
         public static string ToShort(this string input)

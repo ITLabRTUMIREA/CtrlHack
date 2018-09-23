@@ -14,13 +14,17 @@ namespace CtrlHack.Services
 
         public async Task<IEnumerable<Verify>> GetVerifyesAsync(int year, string orgName = "", string ogrn = "", string inn = "", int? subject = null)
         {
+            var strSubject = subject?.ToString() ?? "";
+
+            orgName = orgName?.ToLong() ?? "";
             var web = new HtmlWeb();
-            var doc = await web.LoadFromWebAsync($"http://inspect.rospotrebnadzor.ru/{year}/{subject}/");
+            var doc = await web.LoadFromWebAsync($"http://inspect.rospotrebnadzor.ru/{year}?action=search&name={orgName}&ogrn={ogrn}&inn={inn}&code_region={strSubject}");
             var fields = doc
                 .DocumentNode
                 .SelectNodes("//td/b")
                 .Skip(1)
                 .Select(n => n.InnerText)
+                .Select(n => n.Replace("%quot;", "\"").Replace("&nbsp;", " "))
                 .Where(r => !Regex.IsMatch(r, @"^\d+\D$"))
                 .ToList();
             var next = fields
