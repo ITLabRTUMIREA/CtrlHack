@@ -9,6 +9,7 @@
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
                     <On Platform="UWP" Value="add.png"/>
+                    <On Platform="Android" Value="search.png"/>
                 </OnPlatform>
             </ToolbarItem.Icon>
         </ToolbarItem>

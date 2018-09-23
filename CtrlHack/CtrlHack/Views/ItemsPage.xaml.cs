@@ -38,7 +38,6 @@ namespace CtrlHack.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
             if (viewModel.Items.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
         }
@@ -46,6 +45,12 @@ namespace CtrlHack.Views
         private void ToolbarItem_Clicked(object sender, EventArgs e)
         {
             viewModel.SearchOpened = !viewModel.SearchOpened;
+            if (!viewModel.SearchOpened)
+            {
+                viewModel.UpdateParameters(DateField.Date.Year, OrgNameField.Text, OGRNField.Text, INNField.Text, SubjectField.SelectedIndex);
+                viewModel.Items.Clear();
+                viewModel.LoadItemsCommand.Execute(null);
+            }
         }
     }
 }
