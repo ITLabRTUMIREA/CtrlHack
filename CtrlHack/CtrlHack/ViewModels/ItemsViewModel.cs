@@ -82,27 +82,27 @@ namespace CtrlHack.ViewModels
             }
             
         }
-        private readonly object locker = new object();
-        private DateTime lastCommand = DateTime.Now;
+
+        int i = 0;
         async Task ExecuteLoadItemsCommand()
         {
             try
             {
-                DateTime currentTime;
-                //lock (locker)
-                //{
-                //    lastCommand = DateTime.Now;
-                //    currentTime = lastCommand;
-                //}
+                var my = ++i;
+                await Task.Delay(TimeSpan.FromSeconds(1));
+                if (my != i)
+                    return;
                 var items = await DataStore.GetVerifyesAsync(Year, OrgName, Ogrn, Inn, currentRegion.Number);
-                //if (lastCommand != currentTime)
-                //    return;
                 Items.Clear();
                 foreach (var item in items)
                 {
                     await Task.Delay(TimeSpan.FromMilliseconds(10));
                     Items.Add(item);
                 }
+            }
+            catch (ArgumentNullException)
+            {
+                Items.Clear();
             }
             catch (Exception ex)
             {
