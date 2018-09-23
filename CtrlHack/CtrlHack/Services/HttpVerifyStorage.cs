@@ -77,7 +77,7 @@ namespace CtrlHack.Services
         private static readonly List<RegionPair> regions = new List<RegionPair>()
         {
 
-            {new RegionPair{Number = null, Title = "Не указано"} },
+            {new RegionPair{Number = null, Title = "Любой регион"} },
             {new RegionPair{Number = 1, Title = "Республика Адыгея"} },
             { new RegionPair{Number = 2, Title = "Республика Башкортостан"} },
             { new RegionPair{Number = 3, Title = "Республика Бурятия"} },
