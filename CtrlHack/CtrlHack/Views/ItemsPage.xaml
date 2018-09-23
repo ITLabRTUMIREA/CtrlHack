@@ -19,7 +19,7 @@
                 <StackLayout
                     BackgroundColor="#cccccc"
                     >
-                    
+
                 </StackLayout>
             </ListView.Header>
             <ListView.ItemTemplate>
