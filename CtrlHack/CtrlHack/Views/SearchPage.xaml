@@ -3,12 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CtrlHack.Views.SearchPage">
     <ContentPage.Content>
-        <StackLayout>
-            <DatePicker></DatePicker>
-            <Picker  ItemsSource=""></Picker>
-            <Entry Placeholder="ИНН"></Entry>
-            <Entry Placeholder="ОГРН"></Entry>
-            <Entry Placeholder="Дополнительно"></Entry>
+        <StackLayout
+            VerticalOptions="Center">
+            <Label Text="Год" x:Name="YearField"></Label>
+            <DatePicker x:Name="DateField"></DatePicker>
+            <Entry Placeholder="Наименование ИП/ЮЛ" ReturnType="Next" x:Name="NameField"></Entry>
+            <Entry Placeholder="ОГРН" ReturnType="Next" x:Name="OGRNField"></Entry>
+            <Entry Placeholder="ИНН" ReturnType="Next" x:Name="INNField"></Entry>
+            <Label Text="Субъект РФ"></Label>
+            <Picker  ItemsSource="" x:Name="RegionField"></Picker>
+            <Button Text="Поиск" HorizontalOptions="Center" x:Name="SearchButton"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

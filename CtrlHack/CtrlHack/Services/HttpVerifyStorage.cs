@@ -16,8 +16,8 @@ namespace CtrlHack.Services
         {
             var strSubject = subject?.ToString() ?? "";
 
-            var web = new HtmlWeb();
             orgName = orgName?.ToLong() ?? "";
+            var web = new HtmlWeb();
             var doc = await web.LoadFromWebAsync($"http://inspect.rospotrebnadzor.ru/{year}?action=search&name={orgName}&ogrn={ogrn}&inn={inn}&code_region={strSubject}");
             var fields = doc
                 .DocumentNode
@@ -25,8 +25,6 @@ namespace CtrlHack.Services
                 .Skip(1)
                 .Select(n => n.InnerText)
                 .Where(r => !Regex.IsMatch(r, @"^\d+\D$"))
-                .Select(s => s.Replace("&nbsp;", " "))
-                .Select(s => s.Replace("&quot;", "\""))
                 .ToList();
             var next = fields
                 .Select((val, num) => (val, num))

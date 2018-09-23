@@ -15,13 +15,6 @@
                 CachingStrategy="RecycleElement"
                 ItemSelected="OnItemSelected" 
                 >
-            <ListView.Header>
-                <StackLayout
-                    BackgroundColor="#cccccc"
-                    >
-
-                </StackLayout>
-            </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
