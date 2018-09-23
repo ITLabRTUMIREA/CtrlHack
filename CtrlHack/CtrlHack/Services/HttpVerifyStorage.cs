@@ -24,7 +24,7 @@ namespace CtrlHack.Services
                 .SelectNodes("//td/b")
                 .Skip(1)
                 .Select(n => n.InnerText)
-                .Select(n => n.Replace("%quot;", "\"").Replace("&nbsp;", " "))
+                .Select(n => n.Replace("&quot;", "\"").Replace("&nbsp;", " "))
                 .Where(r => !Regex.IsMatch(r, @"^\d+\D$"))
                 .ToList();
             var next = fields

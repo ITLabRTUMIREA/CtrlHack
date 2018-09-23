@@ -9,13 +9,23 @@
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
                     <On Platform="UWP" Value="add.png"/>
-                </OnPlatform>   
+                </OnPlatform>
             </ToolbarItem.Icon>
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     <StackLayout>
-        <StackLayout  IsVisible="{Binding SearchOpened}">
-            <Button Text="LOLKEK"/>
+        <StackLayout  
+            IsVisible="{Binding SearchOpened}"
+            VerticalOptions="Center"
+            >
+            <Label Text="Год" x:Name="YearField"></Label>
+            <DatePicker x:Name="DateField"></DatePicker>
+            <Entry Placeholder="Наименование ИП/ЮЛ" ReturnType="Next" x:Name="NameField"></Entry>
+            <Entry Placeholder="ОГРН" ReturnType="Next" x:Name="OGRNField"></Entry>
+            <Entry Placeholder="ИНН" ReturnType="Next" x:Name="INNField"></Entry>
+            <Label Text="Субъект РФ"></Label>
+            <Picker ItemsSource="" x:Name="RegionField"></Picker>
+            <Button Text="Поиск" HorizontalOptions="Center" x:Name="SearchButton"></Button>
         </StackLayout>
         <ListView x:Name="ItemsListView"
                 ItemsSource="{Binding Items}"
