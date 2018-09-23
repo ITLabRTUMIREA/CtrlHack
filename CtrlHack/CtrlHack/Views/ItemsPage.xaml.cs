@@ -45,12 +45,7 @@ namespace CtrlHack.Views
         private void ToolbarItem_Clicked(object sender, EventArgs e)
         {
             viewModel.SearchOpened = !viewModel.SearchOpened;
-            if (!viewModel.SearchOpened)
-            {
-                viewModel.UpdateParameters(DateField.Date.Year, OrgNameField.Text, OGRNField.Text, INNField.Text, SubjectField.SelectedIndex);
-                viewModel.Items.Clear();
-                viewModel.LoadItemsCommand.Execute(null);
-            }
+            
         }
     }
 }
