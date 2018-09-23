@@ -10,14 +10,7 @@ namespace CtrlHack.Models
         public string CompactOrgName => ZipedOrgName.Length > MaxCompactLength ?
             ZipedOrgName.Substring(0, MaxCompactLength - 3) + "..."
             : ZipedOrgName;
-        public string ZipedOrgName => OrgName
-            .Replace("МУНИЦИПАЛЬНОЕ БЮДЖЕТНОЕ ОБЩЕОБРАЗОВАТЕЛЬНОЕ УЧРЕЖДЕНИЕ", "МБОУ")
-            .Replace("СРЕДНЯЯ ОБЩЕОБРАЗОВАТЕЛЬНАЯ ШКОЛА", "СОШ")
-            .Replace("МУНИЦИПАЛЬНОЕ БЮДЖЕТНОЕ УЧРЕЖДЕНИЕ ДОПОЛНИТЕЛЬНОГО ОБРАЗОВАНИЯ", "МБУ ДО")
-            .Replace("МУНИЦИПАЛЬНАЯ БЮДЖЕТНАЯ ДОШКОЛЬНАЯ ОБРАЗОВАТЕЛЬНАЯ ОРГАНИЗАЦИЯ", "МБДОО")
-            .Replace("ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ", "ООО")
-            
-            ;
+        public string ZipedOrgName => OrgName.ToShort();
         public string OrgName { get; set; }
         public string OGRN { get; set; }
         public string INN { get; set; }
