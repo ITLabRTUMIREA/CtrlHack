@@ -35,6 +35,15 @@ namespace CtrlHack.ViewModels
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
         }
 
+        public void UpdateParameters(int year, string orgName, string ogrn, string inn, int? subject)
+        {
+            Year = year;
+            OrgName = orgName;
+            Ogrn = ogrn;
+            Inn = inn;
+            Subject = subject;
+        }
+
         async Task ExecuteLoadItemsCommand()
         {
             if (IsBusy)
