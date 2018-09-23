@@ -35,38 +35,53 @@
                 IsPullToRefreshEnabled="true"
                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                 CachingStrategy="RecycleElement"
-                ItemSelected="OnItemSelected" 
+                ItemSelected="OnItemSelected"
+                SeparatorVisibility="None"
                 >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <ContentView Padding="10">
-                            <Frame OutlineColor="Accent"
-                               Padding="10">
-                                <StackLayout Padding="10">
+                        <ContentView Padding="5">
+                            <Frame Padding="10">
+                                <Frame.OutlineColor>
+                                    <OnPlatform x:TypeArguments="Color">
+                                        <On Platform="UWP" Value="Blue" />
+                                    </OnPlatform>
+                                </Frame.OutlineColor>
+                                <StackLayout>
                                     <Label 
                                         Text="{Binding CompactOrgName}" 
                                         LineBreakMode="WordWrap"
                                         Style="{DynamicResource ListItemTextStyle}" 
                                         FontSize="16" />
-                                    <Grid Padding="5">
+                                    <Grid Padding="0"
+                                          Margin="0"
+                                          HorizontalOptions="Fill">
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="1*" />
+                                            <ColumnDefinition Width="1*"/>
                                         </Grid.ColumnDefinitions>
-
-                                        <Label 
+                                        <StackLayout Grid.Column="0" 
+                                                     Orientation="Horizontal"
+                                                     >
+                                            <Label Text="ОГРН:" 
+                                                   FontSize="13"/>
+                                            <Label 
                                             Text="{Binding OGRN}" 
                                             LineBreakMode="NoWrap"
                                             Style="{DynamicResource ListItemDetailTextStyle}"
-                                            FontSize="13" 
-                                            Grid.Column="1"/>
-
-                                        <Label 
+                                            FontSize="13" />
+                                        </StackLayout>
+                                        <StackLayout Grid.Column="1"
+                                                     Orientation="Horizontal">
+                                            <Label Text="ИНН:"
+                                                   FontSize="13" />
+                                            <Label 
                                             Text="{Binding INN}" 
                                             LineBreakMode="NoWrap"
                                             Style="{DynamicResource ListItemDetailTextStyle}"
-                                            FontSize="13" 
-                                            Grid.Column="2"/>
+                                            FontSize="13"/>
+                                        </StackLayout>
                                     </Grid>
                                 </StackLayout>
                             </Frame>
