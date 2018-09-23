@@ -6,8 +6,7 @@ namespace CtrlHack.Models
 {
     public enum MenuItemType
     {
-        Inspections,
-        Search
+        Inspections
     }
     public class HomeMenuItem
     {
