@@ -18,13 +18,13 @@
             IsVisible="{Binding SearchOpened}"
             VerticalOptions="Center"
             >
-            <Label Text="Год" x:Name="YearField"></Label>
+            <Label Text="Год"></Label>
             <DatePicker x:Name="DateField"></DatePicker>
-            <Entry Placeholder="Наименование ИП/ЮЛ" ReturnType="Next" x:Name="NameField"></Entry>
+            <Entry Placeholder="Наименование ИП/ЮЛ" ReturnType="Next" x:Name="OrgNameField"></Entry>
             <Entry Placeholder="ОГРН" ReturnType="Next" x:Name="OGRNField"></Entry>
             <Entry Placeholder="ИНН" ReturnType="Next" x:Name="INNField"></Entry>
             <Label Text="Субъект РФ"></Label>
-            <Picker ItemsSource="" x:Name="RegionField"></Picker>
+            <Picker ItemsSource="" x:Name="SubjectField" Title="Субъект РФ"></Picker>
             <Button Text="Поиск" HorizontalOptions="Center" x:Name="SearchButton"></Button>
         </StackLayout>
         <ListView x:Name="ItemsListView"
