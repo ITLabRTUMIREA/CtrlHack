@@ -14,11 +14,11 @@ namespace CtrlHack.ViewModels
     {
         public ObservableCollection<Verify> Items { get; set; }
         public Command LoadItemsCommand { get; set; }
-        public int Year;
+        public int Year = 2018;
         public string OrgName;
         public string Ogrn;
         public string Inn;
-        public int? Subject;
+        public int? Subject = 77;
 
 
         public ItemsViewModel()
