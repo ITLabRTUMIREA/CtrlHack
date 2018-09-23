@@ -6,7 +6,7 @@
     <ScrollView>
 
         <StackLayout Spacing="20" Padding="15">
-            <Label Text="ОРГН" FontSize="Medium" />
+            <Label Text="ОГРН" FontSize="Medium" />
             <Label Text="{Binding Item.OGRN}" FontSize="Small"/>
 
             <Label Text="ИНН" FontSize="Medium" />

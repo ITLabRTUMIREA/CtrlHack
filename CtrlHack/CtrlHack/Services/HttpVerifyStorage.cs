@@ -12,7 +12,7 @@ namespace CtrlHack.Services
     public class HttpVerifyStorage : IVerifyStorage
     {
 
-        public async Task<IEnumerable<Verify>> GetVerifyesAsync(int year, string orgName = "", string orgn = "", string inn = "", int? subject = null)
+        public async Task<IEnumerable<Verify>> GetVerifyesAsync(int year, string orgName = "", string ogrn = "", string inn = "", int? subject = null)
         {
             var web = new HtmlWeb();
             var doc = await web.LoadFromWebAsync($"http://inspect.rospotrebnadzor.ru/{year}/{subject}/");

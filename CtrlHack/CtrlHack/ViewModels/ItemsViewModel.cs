@@ -14,6 +14,12 @@ namespace CtrlHack.ViewModels
     {
         public ObservableCollection<Verify> Items { get; set; }
         public Command LoadItemsCommand { get; set; }
+        public int Year;
+        public string OrgName;
+        public string Ogrn;
+        public string Inn;
+        public int? Subject;
+
 
         public ItemsViewModel()
         {
@@ -32,7 +38,7 @@ namespace CtrlHack.ViewModels
             try
             {
                 Items.Clear();
-                var items = await DataStore.GetVerifyesAsync(2018);
+                var items = await DataStore.GetVerifyesAsync(Year, OrgName, Ogrn, Inn, Subject);
                 foreach (var item in items)
                 {
                     Items.Add(item);
