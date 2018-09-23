@@ -5,32 +5,73 @@
              Title="{Binding OrgName}">
     <ScrollView>
 
-        <StackLayout Spacing="20" Padding="15">
-            <Label Text="{Binding Item.OrgName}" FontSize="Small"/>
+        <StackLayout Spacing="10" Padding="15">
+            <Label Text="{Binding Item.OrgName}" 
+                   FontSize="Medium"
+                   FontAttributes="Bold"/>
 
-            <Label Text="ОРГН" FontSize="Medium" />
-            <Label Text="{Binding Item.OGRN}" FontSize="Small"/>
+            <StackLayout HorizontalOptions="FillAndExpand">
+                <Label Text="ОРГН"
+                   FontSize="Medium"
+                   FontAttributes="Bold"/>
+                <Label Text="{Binding Item.OGRN}" FontSize="Small"/>
+            </StackLayout>
 
-            <Label Text="ИНН" FontSize="Medium" />
-            <Label Text="{Binding Item.INN}" FontSize="Small"/>
+            <StackLayout HorizontalOptions="Start">
+                <Label Text="ИНН" 
+                       FontSize="Medium"
+                       FontAttributes="Bold"/>
+                <Label Text="{Binding Item.INN}" FontSize="Small"/>
+            </StackLayout>
 
-            <Label Text="Адрес фактического осуществления деятельности" FontSize="Medium" />
-            <Label Text="{Binding Item.Address}" FontSize="Small"/>
+            <StackLayout HorizontalOptions="Start">
+                <Label Text="Адрес фактического осуществления деятельности" 
+                       FontSize="Medium" 
+                       FontAttributes="Bold"/>
+                <Label Text="{Binding Item.Address}" 
+                   FontSize="Small"/>
+            </StackLayout>
 
-            <Label Text="Цель проверки" FontSize="Medium" />
-            <Label Text="{Binding Item.Purpose}" FontSize="Small"/>
+            <StackLayout HorizontalOptions="Start">
+                <Label Text="Цель проверки" 
+                       FontSize="Medium" 
+                       FontAttributes="Bold"/>
+                <Label Text="{Binding Item.Purpose}" 
+                       FontSize="Small"/>
+            </StackLayout>
 
-            <Label Text="Дата начала проверки" FontSize="Medium" />
-            <Label Text="{Binding Item.Date}" FontSize="Small"/>
+            <StackLayout HorizontalOptions="Start">
+                <Label Text="Дата начала проверки"
+                       FontSize="Medium" 
+                       FontAttributes="Bold"/>
+                <Label Text="{Binding Item.Date}"
+                      FontSize="Small"/>
+            </StackLayout>
 
-            <Label Text="Срок проведения проверки" FontSize="Medium" />
-            <Label Text="{Binding Item.Duration}" FontSize="Small"/>
+            <StackLayout HorizontalOptions="Start">
+                <Label Text="Срок проведения проверки"
+                       FontSize="Medium" 
+                       FontAttributes="Bold"/>
+                <Label Text="{Binding Item.Duration}"
+                       FontSize="Small"/>
+            </StackLayout>
 
-            <Label Text="Форма проведения проверки" FontSize="Medium" />
-            <Label Text="{Binding Item.Form}" FontSize="Small"/>
+            <StackLayout HorizontalOptions="Start">
+                <Label Text="Форма проведения проверки"
+                       FontSize="Medium" 
+                       FontAttributes="Bold"/>
+                <Label Text="{Binding Item.Form}"
+                       FontSize="Small"/>
+            </StackLayout>
 
-            <Label Text="Наименование органа государственного контроля (надзора), муниципального с которым проверка проводится совместно " FontSize="Medium" />
-            <Label Text="{Binding Item.HardField}" FontSize="Small"/>
+            <StackLayout HorizontalOptions="Start">
+                <Label Text="Наименование органа государственного контроля, с которым проверка проводится совместно "
+                       FontSize="Medium" 
+                       FontAttributes="Bold"/>
+                <Label Text="{Binding Item.HardField}"
+                       FontSize="Small"/>
+            </StackLayout>
+
         </StackLayout>
     </ScrollView>
 </ContentPage>
