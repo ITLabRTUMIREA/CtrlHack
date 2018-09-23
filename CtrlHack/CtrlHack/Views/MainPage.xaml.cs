@@ -29,9 +29,6 @@ namespace CtrlHack.Views
                     case (int)MenuItemType.Inspections:
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
-                    case (int)MenuItemType.Search:
-                        MenuPages.Add(id, new NavigationPage(new SearchPage()));
-                        break;
                 }
             }
 

@@ -18,7 +18,6 @@ namespace CtrlHack.Views
 
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.Search, Title="Поиск" },
                 new HomeMenuItem {Id = MenuItemType.Inspections, Title="Список проверок" }
             };
 
