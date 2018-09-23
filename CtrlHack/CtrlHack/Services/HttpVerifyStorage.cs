@@ -16,13 +16,15 @@ namespace CtrlHack.Services
         {
             
             var web = new HtmlWeb();
-            var doc = await web.LoadFromWebAsync($"http://inspect.rospotrebnadzor.ru/{year}/{subject}/");
+            var doc = await web.LoadFromWebAsync($"http://inspect.rospotrebnadzor.ru/{year}");
             var fields = doc
                 .DocumentNode
                 .SelectNodes("//td/b")
                 .Skip(1)
                 .Select(n => n.InnerText)
                 .Where(r => !Regex.IsMatch(r, @"^\d+\D$"))
+                .Select(s => s.Replace("&nbsp;", " "))
+                .Select(s => s.Replace("&quot;", "\""))
                 .ToList();
             var next = fields
                 .Select((val, num) => (val, num))
