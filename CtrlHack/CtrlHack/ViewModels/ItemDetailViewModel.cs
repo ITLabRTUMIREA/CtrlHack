@@ -6,10 +6,10 @@ namespace CtrlHack.ViewModels
 {
     public class ItemDetailViewModel : BaseViewModel
     {
-        public Item Item { get; set; }
-        public ItemDetailViewModel(Item item = null)
+        public Verify Item { get; set; }
+        public ItemDetailViewModel(Verify item = null)
         {
-            Title = item?.Text;
+            Title = item?.OrgName;
             Item = item;
         }
     }

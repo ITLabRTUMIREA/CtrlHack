@@ -17,7 +17,6 @@ namespace CtrlHack.Views
     public partial class ItemsPage : ContentPage
     {
         ItemsViewModel viewModel;
-
         public ItemsPage()
         {
             InitializeComponent();
@@ -27,8 +26,7 @@ namespace CtrlHack.Views
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            var item = args.SelectedItem as Item;
-            if (item == null)
+            if (!(args.SelectedItem is Verify item))
                 return;
 
             await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
@@ -37,17 +35,17 @@ namespace CtrlHack.Views
             ItemsListView.SelectedItem = null;
         }
 
-        async void AddItem_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
-        }
-
         protected override void OnAppearing()
         {
             base.OnAppearing();
 
             if (viewModel.Items.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
+        }
+
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            viewModel.SearchOpened = !viewModel.SearchOpened;
         }
     }
 }

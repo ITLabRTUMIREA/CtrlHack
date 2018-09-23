@@ -12,21 +12,27 @@ namespace CtrlHack.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {
-        public ObservableCollection<Item> Items { get; set; }
+        public ObservableCollection<Verify> Items { get; set; }
+
+        bool searchOpened = false;
+        public bool SearchOpened 
+        {
+            get { return searchOpened; }
+            set { SetProperty(ref searchOpened, value); }
+        }
+
         public Command LoadItemsCommand { get; set; }
+        public int Year = 2018;
+        public string OrgName;
+        public string Ogrn;
+        public string Inn;
+        public int? Subject = 77;
 
         public ItemsViewModel()
         {
-            Title = "Browse";
-            Items = new ObservableCollection<Item>();
+            Title = "Список проверок";
+            Items = new ObservableCollection<Verify>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
-
-            MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
-            {
-                var newItem = item as Item;
-                Items.Add(newItem);
-                await DataStore.AddItemAsync(newItem);
-            });
         }
 
         async Task ExecuteLoadItemsCommand()
@@ -39,7 +45,7 @@ namespace CtrlHack.ViewModels
             try
             {
                 Items.Clear();
-                var items = await DataStore.GetItemsAsync(true);
+                var items = await DataStore.GetVerifyesAsync(Year, OrgName, Ogrn, Inn, Subject);
                 foreach (var item in items)
                 {
                     Items.Add(item);
