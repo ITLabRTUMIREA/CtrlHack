@@ -4,14 +4,9 @@ using System.Text;
 
 namespace CtrlHack.Models
 {
-    public enum MenuItemType
+    public class RegionPair
     {
-        Inspections
-    }
-    public class HomeMenuItem
-    {
-        public MenuItemType Id { get; set; }
-
         public string Title { get; set; }
+        public int? Number { get; set; }
     }
 }

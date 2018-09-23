@@ -9,13 +9,46 @@
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
                     <On Platform="UWP" Value="add.png"/>
-                </OnPlatform>   
+                    <On Platform="Android" Value="search.png"/>
+                </OnPlatform>
             </ToolbarItem.Icon>
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     <StackLayout>
-        <StackLayout  IsVisible="{Binding SearchOpened}">
-            <Button Text="LOLKEK"/>
+        <StackLayout  
+            IsVisible="{Binding SearchOpened}"
+            VerticalOptions="Center"
+            >
+            <Picker 
+                Title="Год"
+                SelectedItem="{Binding Year}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:Int32}">
+                        <x:Int32>2013</x:Int32>
+                        <x:Int32>2014</x:Int32>
+                        <x:Int32>2015</x:Int32>
+                        <x:Int32>2016</x:Int32>
+                        <x:Int32>2017</x:Int32>
+                        <x:Int32>2018</x:Int32>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Entry 
+                Placeholder="Наименование ИП/ЮЛ"
+                Text="{Binding OrgName}"
+                ReturnType="Next"/>
+            <Entry 
+                Placeholder="ОГРН" 
+                Text="{Binding Ogrn}"
+                ReturnType="Next" />
+            <Entry 
+                Placeholder="ИНН" 
+                Text="{Binding Inn}"
+                ReturnType="Next"/>
+            <Picker Title="Субъект РФ"
+                    ItemsSource="{Binding Regions}"
+                    ItemDisplayBinding="{Binding Title}"
+                    SelectedItem="{Binding CurrentRegion}" />
         </StackLayout>
         <ListView x:Name="ItemsListView"
                 ItemsSource="{Binding Items}"
