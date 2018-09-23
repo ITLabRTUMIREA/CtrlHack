@@ -8,6 +8,6 @@ namespace CtrlHack.Services
 {
     public interface IVerifyStorage
     {
-        Task<IEnumerable<Verify>> GetVerifyesAsync(int year, string orgName = "", string orgn = "", string inn = "", int? subject = null);
+        Task<IEnumerable<Verify>> GetVerifyesAsync(int year, string orgName = "", string ogrn = "", string inn = "", int? subject = null);
     }
 }

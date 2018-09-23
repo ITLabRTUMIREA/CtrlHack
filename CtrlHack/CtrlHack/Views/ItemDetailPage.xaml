@@ -10,7 +10,7 @@
 
             <Label Text="ОРГН" FontSize="Medium" />
             <Label Text="{Binding Item.OGRN}" FontSize="Small"/>
-            
+
             <Label Text="ИНН" FontSize="Medium" />
             <Label Text="{Binding Item.INN}" FontSize="Small"/>
 
