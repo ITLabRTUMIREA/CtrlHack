@@ -20,7 +20,7 @@
                 <DataTemplate>
                     <ViewCell>
                         <ContentView Padding="5">
-                            <Frame>
+                            <Frame Padding="10">
                                 <Frame.OutlineColor>
                                     <OnPlatform x:TypeArguments="Color">
                                         <On Platform="UWP" Value="Blue" />
@@ -32,13 +32,17 @@
                                         LineBreakMode="WordWrap"
                                         Style="{DynamicResource ListItemTextStyle}" 
                                         FontSize="16" />
-                                    <Grid Padding="0,2,0,0">
+                                    <Grid Padding="0"
+                                          Margin="0"
+                                          HorizontalOptions="Fill">
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="1*" />
+                                            <ColumnDefinition Width="1*"/>
                                         </Grid.ColumnDefinitions>
-                                        <StackLayout Grid.Column="1" 
-                                                     Orientation="Horizontal">
-                                            <Label Text="ОГРН: " 
+                                        <StackLayout Grid.Column="0" 
+                                                     Orientation="Horizontal"
+                                                     >
+                                            <Label Text="ОГРН:" 
                                                    FontSize="13"/>
                                             <Label 
                                             Text="{Binding OGRN}" 
@@ -46,9 +50,9 @@
                                             Style="{DynamicResource ListItemDetailTextStyle}"
                                             FontSize="13" />
                                         </StackLayout>
-                                        <StackLayout Grid.Column="2"
+                                        <StackLayout Grid.Column="1"
                                                      Orientation="Horizontal">
-                                            <Label Text="ИНН: "
+                                            <Label Text="ИНН:"
                                                    FontSize="13" />
                                             <Label 
                                             Text="{Binding INN}" 
