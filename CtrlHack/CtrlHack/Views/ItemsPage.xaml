@@ -5,16 +5,51 @@
               Title="{Binding Title}"
              x:Name="BrowseItemsPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Clicked="AddItem_Clicked">
+        <ToolbarItem Text="Search" Clicked="ToolbarItem_Clicked">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
                     <On Platform="UWP" Value="add.png"/>
+                    <On Platform="Android" Value="search.png"/>
                 </OnPlatform>
             </ToolbarItem.Icon>
         </ToolbarItem>
     </ContentPage.ToolbarItems>
-
     <StackLayout>
+        <StackLayout  
+            IsVisible="{Binding SearchOpened}"
+            VerticalOptions="Center"
+            >
+            <Picker 
+                Title="Год"
+                SelectedItem="{Binding Year}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:Int32}">
+                        <x:Int32>2013</x:Int32>
+                        <x:Int32>2014</x:Int32>
+                        <x:Int32>2015</x:Int32>
+                        <x:Int32>2016</x:Int32>
+                        <x:Int32>2017</x:Int32>
+                        <x:Int32>2018</x:Int32>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Entry 
+                Placeholder="Наименование ИП/ЮЛ"
+                Text="{Binding OrgName}"
+                ReturnType="Next"/>
+            <Entry 
+                Placeholder="ОГРН" 
+                Text="{Binding Ogrn}"
+                ReturnType="Next" />
+            <Entry 
+                Placeholder="ИНН" 
+                Text="{Binding Inn}"
+                ReturnType="Next"/>
+            <Picker Title="Субъект РФ"
+                    ItemsSource="{Binding Regions}"
+                    ItemDisplayBinding="{Binding Title}"
+                    SelectedItem="{Binding CurrentRegion}" />
+        </StackLayout>
         <ListView x:Name="ItemsListView"
                 ItemsSource="{Binding Items}"
                 VerticalOptions="FillAndExpand"
@@ -23,23 +58,62 @@
                 IsPullToRefreshEnabled="true"
                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                 CachingStrategy="RecycleElement"
-                ItemSelected="OnItemSelected">
+                ItemSelected="OnItemSelected"
+                SeparatorVisibility="None"
+                >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Padding="10">
-                            <Label Text="{Binding Text}" 
-                                LineBreakMode="NoWrap" 
-                                Style="{DynamicResource ListItemTextStyle}" 
-                                FontSize="16" />
-                            <Label Text="{Binding Description}" 
-                                LineBreakMode="NoWrap"
-                                Style="{DynamicResource ListItemDetailTextStyle}"
-                                FontSize="13" />
-                        </StackLayout>
+                        <ContentView Padding="5">
+                            <Frame Padding="10">
+                                <Frame.OutlineColor>
+                                    <OnPlatform x:TypeArguments="Color">
+                                        <On Platform="UWP" Value="Blue" />
+                                    </OnPlatform>
+                                </Frame.OutlineColor>
+                                <StackLayout>
+                                    <Label 
+                                        Text="{Binding CompactOrgName}" 
+                                        LineBreakMode="WordWrap"
+                                        Style="{DynamicResource ListItemTextStyle}" 
+                                        FontSize="16" />
+                                    <Grid Padding="0"
+                                          Margin="0"
+                                          HorizontalOptions="Fill">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*" />
+                                            <ColumnDefinition Width="1*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout Grid.Column="0" 
+                                                     Orientation="Horizontal"
+                                                     >
+                                            <Label Text="ОГРН:" 
+                                                   FontSize="13"/>
+                                            <Label 
+                                            Text="{Binding OGRN}" 
+                                            LineBreakMode="NoWrap"
+                                            Style="{DynamicResource ListItemDetailTextStyle}"
+                                            FontSize="13" />
+                                        </StackLayout>
+                                        <StackLayout Grid.Column="1"
+                                                     Orientation="Horizontal">
+                                            <Label Text="ИНН:"
+                                                   FontSize="13" />
+                                            <Label 
+                                            Text="{Binding INN}" 
+                                            LineBreakMode="NoWrap"
+                                            Style="{DynamicResource ListItemDetailTextStyle}"
+                                            FontSize="13"/>
+                                        </StackLayout>
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+                        </ContentView>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
     </StackLayout>
+
+
 </ContentPage>
